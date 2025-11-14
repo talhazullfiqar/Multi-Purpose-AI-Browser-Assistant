@@ -1,0 +1,359 @@
+/* BASE LAYOUT */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  font-family: "Segoe UI", sans-serif;
+  overflow: hidden;
+}
+
+#root {
+  height: 100vh;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+/* TOP SECTION TAKES AVAILABLE SPACE */
+.top-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* HEADER */
+.header {
+  text-align: center;
+}
+
+.header .title {
+  font-size: 18px;
+  color: #58a6ff;
+  font-weight: 600;
+}
+
+.header .subtitle {
+  font-size: 12px;
+  color: #8b949e;
+  margin-top: 4px;
+}
+
+/* OUTPUT */
+.output {
+  flex: 1;
+  width: 90%;
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 10px;
+  color: #8b949e;
+  font-family: monospace;
+  font-size: 13px;
+  white-space: pre-wrap;
+  overflow-y: auto;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+/* BOTTOM SECTION FIXED AT BOTTOM */
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-self: center;
+  margin-top: auto; /* pushes this section to bottom */
+  margin-bottom: 12px;
+  gap: 8px;
+  flex-shrink: 0; /* prevent shrinking */
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: #30363d #0d1117;
+  padding-bottom: 2px;
+}
+
+.tabs::-webkit-scrollbar {
+  height: 6px;
+}
+
+.tabs::-webkit-scrollbar-thumb {
+  background: #30363d;
+  border-radius: 4px;
+}
+
+/* INDIVIDUAL TAB */
+.tab {
+  flex: 0 0 auto; /* shrink to fit content */
+  max-width: 120px; /* optional, prevent very long tabs */
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 13px;
+  overflow: hidden;
+}
+
+.tab:hover {
+  background-color: #1f6feb33;
+}
+
+.tab.active {
+  border-color: #58a6ff;
+}
+
+/* TRUNCATE LONG TITLES */
+.tab span:first-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90px; /* adjust based on your sidebar width */
+}
+
+/* PLUS / CROSS BUTTON */
+.plus-btn {
+  color: #58a6ff;
+  font-weight: bold;
+  margin-left: 6px;
+  font-size: 16px;
+}
+
+/* INPUT SECTION */
+.input-section {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #30363d;
+  background: #161b22;
+  overflow: hidden;
+}
+
+/* Use textarea for multi-line input */
+.input-section input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #c9d1d9;
+  padding: 12px; /* increased padding for height */
+  outline: none;
+  font-size: 13px;
+  min-height: 40px; /* minimum height */
+  max-height: 120px; /* max height for multi-line scroll */
+  overflow-x: auto; /* horizontal scroll if text wider than input */
+  overflow-y: auto; /* vertical scroll if text taller than max-height */
+  white-space: pre; /* preserve spaces for long text */
+}
+.input-section textarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #c9d1d9;
+  padding: 12px;
+  outline: none;
+  font-size: 13px;
+  min-height: 40px;
+  max-height: 120px;
+  overflow-y: auto; /* vertical scroll works */
+  overflow-x: hidden; /* prevent horizontal scroll */
+  resize: none;
+  white-space: pre-wrap; /* wrap text to next line */
+  word-wrap: break-word; /* wrap long words */
+  font-family: monospace;
+
+  /* hide scrollbar - Firefox */
+  scrollbar-width: none;
+
+  /* hide scrollbar - Webkit (Chrome, Edge, Safari) */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.input-section textarea::-webkit-scrollbar {
+  display: none; /* hide scrollbar for Chrome, Safari, Edge */
+}
+
+.input-section button {
+  background: none;
+  border: none;
+  color: #58a6ff;
+  font-size: 18px;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+/* CHAT SECTION */
+.chat-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-bottom: 8px;
+}
+
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 4px 0;
+}
+/* CHAT BUBBLES MODERN UI */
+.chat-bubble {
+  max-width: 75%;
+  padding: 10px 14px;
+  border-radius: 18px;
+  font-size: 13px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
+  line-height: 1.4;
+  animation: fadeIn 0.3s ease;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  min-width: 0;
+}
+
+.chat-bubble pre {
+  margin: 0;
+  padding: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-family: inherit;
+  font-size: inherit;
+  max-width: 100%;
+}
+
+.chat-bubble.user {
+  align-self: flex-end;
+  background: #1f6feb;
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.chat-bubble.bot {
+  align-self: flex-start;
+  background: #161b22;
+  border: 1px solid #30363d;
+  color: #c9d1d9;
+  border-bottom-left-radius: 4px;
+}
+
+/* TAB LABEL INSIDE USER MESSAGE */
+.tab-label {
+  font-size: 10px;
+  background: #0d1117aa;
+  color: #58a6ff;
+  padding: 2px 6px;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  display: inline-block;
+}
+
+/* TYPING DOTS ANIMATION */
+.chat-bubble.typing {
+  width: 50px;
+  padding: 8px;
+  background: #161b22;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dots span {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin: 0 2px;
+  background: #58a6ff;
+  border-radius: 50%;
+  animation: blink 1.4s infinite both;
+}
+
+.dots span:nth-child(1) {
+  animation-delay: 0s;
+}
+.dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes blink {
+  0%,
+  80%,
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* FADE IN */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CUSTOM CHAT SCROLLBAR */
+.chat-section::-webkit-scrollbar {
+  width: 8px; /* width of the vertical scrollbar */
+}
+
+.chat-section::-webkit-scrollbar-track {
+  background: #0d1117; /* track background */
+  border-radius: 4px;
+}
+
+.chat-section::-webkit-scrollbar-thumb {
+  background: #30363d; /* scrollbar thumb color */
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.chat-section::-webkit-scrollbar-thumb:hover {
+  background: #58a6ff; /* hover color */
+}
+
+/* Firefox */
+.chat-section {
+  scrollbar-width: thin;
+  scrollbar-color: #30363d #0d1117; /* thumb color track color */
+}
+
+.chat-section:hover {
+  scrollbar-color: #58a6ff #0d1117; /* hover effect for Firefox */
+}

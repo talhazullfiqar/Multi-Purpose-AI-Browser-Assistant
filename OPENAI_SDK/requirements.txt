@@ -1,0 +1,7 @@
+nest_asyncio
+ipykernel
+openai
+openai-agents
+python-dotenv
+aiohttp
+sendgrid
