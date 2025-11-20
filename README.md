@@ -7,7 +7,7 @@ A comprehensive AI-powered browser automation system that combines intelligent w
 ## 🚀 Features
 
 ## 📹 Project Demo
-- ![Demo](https://drive.google.com/uc?export=download&id=1zFuVKDCoNBCGK4vVTdnwV9x3snyyKc4s)
+- **Project [Demo](https://drive.google.com/uc?export=download&id=1zFuVKDCoNBCGK4vVTdnwV9x3snyyKc4s)**
 
 ### 🤖 AI-Powered Assistance
 - **Intelligent Chat Interface**: Direct communication with AI through a side panel
